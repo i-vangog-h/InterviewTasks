@@ -2,6 +2,7 @@
 
 Console application with an interactive CLI
 
+`cd ./NactiDataApp/` <br>
 Run `dotnet run <args>` and provide 3 integer arguments to test the app <br>
 
 Build project to restore dependencies and inside of root directory: <br>

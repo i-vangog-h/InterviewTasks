@@ -16,10 +16,23 @@ internal class Program
 
         for (int i = 0; i <= 2; i++)
         {
-            if (!Int32.TryParse(args[i], out numbers[i]))
+            try
+            {
+                numbers[i] = Int32.Parse(args[i]);
+            }
+            catch (OverflowException)
+            {
+                throw new OverflowException($"The number is too large at position {i}: got \'{args[i]}\', Int32 number is expected");
+            }
+            catch (FormatException)
             {
                 throw new FormatException($"Incorrect input at position {i}: got \'{args[i]}\', Int32 number is expected");
             }
+            catch (Exception)
+            {
+                throw new Exception("Unknown exception occured");
+            }
+
         }
 
         Console.Write("Enable whole division (Y/n): ");
